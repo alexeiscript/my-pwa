@@ -10,14 +10,14 @@ class List extends Component {
     formValue: ""
   };
 
-  inputChange = e => {
-    this.setState({addFormValue: e.target.value});
+  inputChange = event => {
+    this.setState({addFormValue: event.target.value});
   };
 
-  formSubmit = e => {
+  formSubmit = event => {
     const {formValue} = this.state;
     const {addTodo} = this.props;
-    e.preventDefault();
+    event.preventDefault();
     addTodo({title: formValue});
     this.setState({formValue: ""});
   };
@@ -29,12 +29,12 @@ class List extends Component {
         <div>
           <form onSubmit={this.formSubmit}>
             <div>
-              <i>add</i>
+              <i>Add</i>
               <input 
+                type="text"
                 value={formValue}
                 onChange={this.inputChange}
                 id="toDoNext"
-                type="text"
               />
               <label htmlFor="toDoNext">What Next?</label>
             </div>
@@ -53,12 +53,12 @@ class List extends Component {
     }
     return (
       <div>
-        <h4>You have no more things ToDo!</h4>
+        <h4>You have no more things To Do!</h4>
       </div>
     );
   }
   componentWillMount() {
-    this.props.fetchTodos();
+    this.props.fetchToDos();
   }
   render() {
     const {showForm} = this.state;

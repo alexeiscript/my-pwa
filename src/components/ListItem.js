@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {completeTodo} from '../actions';
+import {completeToDo} from '../actions';
 
 class ListItem extends Component {
   handleComplete = completeTodo => {
-    const {completeTodo} = this.props;
-    completeTodo(completeTodo);
+    const {completeToDo} = this.props;
+    completeTodo(completeToDo);
   };
 
   render() {
@@ -23,4 +23,4 @@ class ListItem extends Component {
   }
 }
 
-export default connect(null, {completeTodo})(ListItem);
+export default connect(null, {completeToDo})(ListItem);
